@@ -13,4 +13,5 @@ repositories {
 
 dependencies {
 // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-openfeign
-    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-openfeign', version: '2.0.1.RELEASE'}
+
+}

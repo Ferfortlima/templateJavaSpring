@@ -8,11 +8,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 public interface EmpresaContract {
+
     @GetMapping("empresa/{id}")
     Envelope getByidEmpresa(@PathVariable Long id) throws Exception;
 
     @PostMapping("empresa")
-    Envelope<Empresa> insertEmpresa(@RequestBody Empresa empresa) throws Exception;
+    Envelope insertEmpresa(@RequestBody Empresa empresa) throws Exception;
 
     @GetMapping("empresa/listEmpresa")
     Envelope getAllEmpresa();

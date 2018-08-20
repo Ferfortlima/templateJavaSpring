@@ -5,6 +5,8 @@ import logic.component.template.server.service.EmpresaService;
 import logic.component.template.shared.model.Empresa;
 import logic.component.template.shared.model.Envelope;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -14,12 +16,12 @@ public class EmpresaController implements EmpresaContract {
     EmpresaService empresaService;
 
     @Override
-    public Envelope getByidEmpresa(Long id) throws Exception {
+    public Envelope getByidEmpresa(@PathVariable Long id) throws Exception {
         return new Envelope().setData(empresaService.getByIdEmpresa(id));
     }
 
     @Override
-    public Envelope<Empresa> insertEmpresa(Empresa empresa) throws Exception {
+    public Envelope insertEmpresa(@RequestBody Empresa empresa) throws Exception {
         return new Envelope().setData(empresaService.insertEmpresa(empresa));
     }
 

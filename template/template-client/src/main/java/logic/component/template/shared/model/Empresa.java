@@ -17,9 +17,6 @@ public class Empresa implements Serializable {
 
     String cnpj;
 
-    @OneToMany(mappedBy = "empresa")
-    List<Funcionario> funcionarios;
-
     public Empresa() {
     }
 
@@ -52,13 +49,6 @@ public class Empresa implements Serializable {
         this.cnpj = cnpj;
     }
 
-    public List<Funcionario> getFuncionarios() {
-        return funcionarios;
-    }
-
-    public void setFuncionarios(List<Funcionario> funcionarios) {
-        this.funcionarios = funcionarios;
-    }
 
     @Override
     public boolean equals(Object o) {

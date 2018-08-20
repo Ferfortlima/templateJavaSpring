@@ -21,9 +21,6 @@ public class Funcionario implements Serializable {
     @NotNull
     String telefone;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="empresa_id")
-    Empresa empresa;
 
     public Funcionario() {
     }
@@ -66,13 +63,7 @@ public class Funcionario implements Serializable {
         this.telefone = telefone;
     }
 
-    public Empresa getEmpresa() {
-        return empresa;
-    }
 
-    public void setEmpresa(Empresa empresa) {
-        this.empresa = empresa;
-    }
 
     @Override
     public boolean equals(Object o) {
