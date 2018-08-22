@@ -38,7 +38,7 @@ allprojects {
             exclude module: 'spring-boot-starter-tomcat'
         }
         compile('org.springframework.boot:spring-boot-starter-undertow:2.0.4.RELEASE')
-        testCompile('org.springframework.boot:spring-boot-starter-test')
+        //testCompile('org.springframework.boot:spring-boot-starter-test')
 
         compile group: 'org.springframework.boot', name: 'spring-boot-starter-redis', version: '1.4.7.RELEASE'
         compile group: 'redis.clients', name: 'jedis', version: '2.9.0'

@@ -1,21 +1,25 @@
 package logic.component.template.shared.model;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.io.Serializable;
-import java.util.List;
 import java.util.Objects;
 
 @Entity
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Empresa implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
-    String nome;
+    private String nome;
 
-    String cnpj;
+    private String cnpj;
 
     public Empresa() {
     }
@@ -29,24 +33,27 @@ public class Empresa implements Serializable {
         return id;
     }
 
-    public void setId(Long id) {
+    public Empresa setId(Long id) {
         this.id = id;
+        return this;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public void setNome(String nome) {
+    public Empresa setNome(String nome) {
         this.nome = nome;
+        return this;
     }
 
     public String getCnpj() {
         return cnpj;
     }
 
-    public void setCnpj(String cnpj) {
+    public Empresa setCnpj(String cnpj) {
         this.cnpj = cnpj;
+        return this;
     }
 
 

@@ -1,25 +1,30 @@
 package logic.component.template.shared.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import org.springframework.stereotype.Component;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Objects;
 
+
 @Entity
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Funcionario implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
     @NotNull
-    String nome;
+    private String nome;
 
     @NotNull
-    String email;
+    private String email;
 
     @NotNull
-    String telefone;
+    private String telefone;
 
 
     public Funcionario() {
@@ -35,32 +40,37 @@ public class Funcionario implements Serializable {
         return id;
     }
 
-    public void setId(Long id) {
+    public Funcionario setId(Long id) {
         this.id = id;
+        return this;
     }
 
     public String getNome() {
         return nome;
+
     }
 
-    public void setNome(String nome) {
+    public Funcionario setNome(String nome) {
         this.nome = nome;
+        return this;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
+    public Funcionario setEmail(String email) {
         this.email = email;
+        return this;
     }
 
     public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(String telefone) {
+    public Funcionario setTelefone(String telefone) {
         this.telefone = telefone;
+        return this;
     }
 
 

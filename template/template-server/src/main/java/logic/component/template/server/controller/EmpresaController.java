@@ -3,9 +3,12 @@ package logic.component.template.server.controller;
 import io.swagger.annotations.*;
 import logic.component.template.client.EmpresaContract;
 import logic.component.template.server.service.EmpresaService;
+import logic.component.template.server.service.FuncionarioService;
+import logic.component.template.shared.dto.EmpresaDto;
 import logic.component.template.shared.model.Empresa;
 import logic.component.template.shared.model.Envelope;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.convert.ConversionService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,6 +18,10 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(description = "Empresa")
 @RestController
 public class EmpresaController implements EmpresaContract {
+
+
+    @Autowired
+    private ConversionService conversionService;
 
     @Autowired
     EmpresaService empresaService;
@@ -37,7 +44,8 @@ public class EmpresaController implements EmpresaContract {
             @ApiResponse(code = 500, message = "Internal Server Error")})
     @ResponseStatus(HttpStatus.OK)
     @Override
-    public Envelope insertEmpresa(@RequestBody Empresa empresa) throws Exception {
+    public Envelope insertEmpresa(@RequestBody EmpresaDto empresaDto) throws Exception {
+        Empresa empresa =  conversionService.convert(empresaDto,Empresa.class);
         return new Envelope().setData(empresaService.insertEmpresa(empresa));
     }
 

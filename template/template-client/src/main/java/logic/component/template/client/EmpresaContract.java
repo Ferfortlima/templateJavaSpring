@@ -1,5 +1,6 @@
 package logic.component.template.client;
 
+import logic.component.template.shared.dto.EmpresaDto;
 import logic.component.template.shared.model.Empresa;
 import logic.component.template.shared.model.Envelope;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +14,7 @@ public interface EmpresaContract {
     Envelope getByidEmpresa(@PathVariable Long id) throws Exception;
 
     @PostMapping("empresa")
-    Envelope insertEmpresa(@RequestBody Empresa empresa) throws Exception;
+    Envelope insertEmpresa(@RequestBody EmpresaDto empresaDto) throws Exception;
 
     @GetMapping("empresa/listEmpresa")
     Envelope getAllEmpresa();

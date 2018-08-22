@@ -1,5 +1,6 @@
 package logic.component.template.client;
 
+import logic.component.template.shared.dto.FuncionarioDto;
 import logic.component.template.shared.model.Envelope;
 import logic.component.template.shared.model.Funcionario;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +14,7 @@ public interface FuncionarioContract {
     Envelope getByidFuncionario(@PathVariable Long id) throws Exception;
 
     @PostMapping("funcionario")
-    Envelope insertFuncionario(@RequestBody Funcionario funcionario) throws Exception;
+    Envelope insertFuncionario(@RequestBody FuncionarioDto funcionarioDto) throws Exception;
 
     @GetMapping("funcionario/listFuncionario")
     Envelope getAllFuncionario();
