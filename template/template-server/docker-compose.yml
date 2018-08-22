@@ -1,0 +1,26 @@
+version: "3.4"
+services:
+
+  redis:
+    image: redis
+    networks:
+    - template
+
+  app:
+    build:
+      context: .
+      args:
+        JAR_FILE: build/libs/template-server-1.0-SNAPSHOT.jar
+    volumes:
+    - $HOME/serviceAccountKey.json:/root/serviceAccountKey.json
+    ports:
+    - "8445:8445"
+    environment:
+    - WAIT_FOR_IT=redis:6379
+    #- JAVA_OPTS=-Xmx256m -Xms128m -Dspring.profiles.active=docker-compose
+    - JAVA_OPTS=-Xmx256m -Xms128m
+    networks:
+    - template
+
+networks:
+  template:

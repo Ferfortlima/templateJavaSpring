@@ -20,7 +20,7 @@ template:
   #Redis
   redis:
     #hostname do Redis, quando usando docker, é o IPAdress fornecido pelo comando "docker inspect <nomeContainer>.
-    hostname: 172.17.0.2
+    hostname: redis
     port: 6379
 
 server:
